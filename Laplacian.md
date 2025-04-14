@@ -42,7 +42,7 @@ $H_i\vec{e}_i = \dd{\vec{r}}{q_i}, \; |\vec{e}_i| = 1$
 
 Перепишем в другом базисе $\vec{A} = \tilde{A}_i(\vec{q}) \vec{e}_i$, $\vec{e}_i = \frac{1}{H_i}\dd{\vec{r}}{q_i}$
 
-Фиксируем $\d q_1, \d q_2, \d q_3$, тогда в исходном пространсте получаем фигуру похожую на параллелепипед со сторонами $h_i = H_i \d q_i$, ориентированную по векторам $\vec{e}_i$
+Фиксируем $\d q_1, \d q_2, \d q_3$, тогда в исходном пространстве получаем фигуру похожую на параллелепипед со сторонами $h_i = H_i \d q_i$, ориентированную по векторам $\vec{e}_i$
 
 Её объём соответственно $V = h_1 h_2 h_3 = H_1 H_2 H_3 \d q_1 \d q_2 \d q_3$
 
@@ -60,7 +60,7 @@ $H_i\vec{e}_i = \dd{\vec{r}}{q_i}, \; |\vec{e}_i| = 1$
 
 $\Delta f = \nabla(\nabla f)$
 
-В прямолинейных координатах $\Delta f = \dd{^2 f}{x_1^2} + \dd{^2 f}{x_2^2} + \dd{^2 f}{x_3^2} = \dd{^2 f}{x_ix_i}$
+В прямолинейных координатах $\Delta f = \dd{^2 f}{x_1^2} + \dd{^2 f}{x_2^2} + \dd{^2 f}{x_3^2} = \dd{^2 f}{x_i \partial x_i}$
 
 В ортогональных криволинейных координатах $\boxed{\Delta f = \frac{1}{H_1 H_2 H_3} \ddd{q_i}{\frac{H_1 H_2 H_3}{H_i^2} \dd{f}{q_i}}}$
 
@@ -100,4 +100,36 @@ $\boxed{\Delta f = \dd{^2 f}{r^2} + \frac{1}{r}\dd{f}{r} + \frac{1}{r^2}\dd{^2 f
 
 # Ортогональная замена координат
 
+Рассмотрим теперь $\vec{r} \in \R^n$
 
+При этом лапласиан $\Delta f = \dd{^2 f}{x_i \partial x_i}, i = \overline{1, n}$
+
+$\vec{\xi} = S\vec{r}$, $S = (s_{ij})_{i,j = 1}^n$
+
+$S$ - ортогональная матрица, то есть $S^TS = I$
+
+$\dd{f}{x_i} = \dd{f}{\xi_k}\dd{\xi_k}{x_i} = s_{ki}\dd{f}{\xi_k}$
+
+$\dd{^2 f}{x_i \partial x_i} = s_{ki}\dd{^2 f}{x_i \partial \xi_k} = s_{ki}s_{li}\dd{^2 f}{\xi_l \partial \xi_k}$
+
+Ортогональность через элементы матрицы $S^TS = I \iff s_{ki}s_{li} = \delta_{kl}$
+
+$\boxed{\Delta f = \dd{^2 f}{\xi_i \partial \xi_i}}$
+
+# Удобная формула
+
+$g(r) = \frac{f(r)}{r}, \; r = \sqrt{x_ix_i}, \; i = \overline{1, n}$
+
+$\dd{g}{x_i} = \left(\frac{f'(r)}{r} - \frac{f(r)}{r^2} \right) \dd{r}{x_i} = \left(rf'(r) - f(r) \right) \frac{x_i}{r^3}$
+
+Учтём, что $\dd{x_i}{x_i} = n$
+
+$\dd{^2 g}{x_i \partial x_i} = (rf'(r) - f(r)) \frac{n}{r^3} + (f'(r) + rf''(r) - f'(r)) \frac{x_i x_i}{r^4} - 3(rf'(r) - f(r)) \frac{x_i x_i}{r^5}$
+
+Но $x_i x_i = r^2$, следовательно
+
+$\Delta g = \frac{f''(r)}{r} + \frac{n-3}{r^3} (rf'(r) - f(r))$
+
+При $n = 3$ получаем
+
+$\boxed{\Delta \frac{f(r)}{r} = \frac{f''(r)}{r}}$
