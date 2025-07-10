@@ -86,3 +86,64 @@ $\square$
 Обратно в силу **определения 6** верно $\forall x \in \mathcal{V}_\lambda \mapsto h_\lambda(x) \le h_\lambda \Rightarrow \mathcal{A}_\lambda^{h_\lambda} x = 0 \Rightarrow \mathcal{V}_\lambda \subset \text{Ker} \mathcal{A}_\lambda^{h_\lambda}$
 
 $\blacksquare$
+
+# Разложение на корневые подпространтва
+
+$\oplus$ - прямая сумма
+
+**Лемма 1**: $[\mathcal{L} = \text{Ker} \mathcal{A} \oplus \text{Im} \mathcal{A}] \Leftrightarrow [\text{Ker} \mathcal{A} = \text{Ker} \mathcal{A}^2]$
+
+$\square$
+
+По формуле Грассмана $\dim(\text{Ker} \mathcal{A} + \text{Im} \mathcal{A}) = \dim\text{Ker} \mathcal{A} + \dim\text{Im} \mathcal{A} - \dim(\text{Ker} \mathcal{A} \cap \text{Im} \mathcal{A})$
+
+Из курса линейной алгебры известно $\dim\text{Ker} \mathcal{A} + \dim\text{Im} \mathcal{A} = \dim\mathcal{L}$
+
+$\blacksquare$
+
+**Лемма 2**: $\mathcal{V}_\lambda$ - подпространство инвариантное относительно $\mathcal{A}$
+
+$\square$
+
+Выберем любой $x \in \mathcal{V}_\lambda$
+
+Очевидно $\mathcal{A}_\lambda x \in \mathcal{V}_\lambda$, $\lambda x \in \mathcal{V}_\lambda$
+
+Окончательно $\mathcal{A} x = \mathcal{A}_\lambda x + \lambda x \in \mathcal{V}_\lambda$
+
+$\blacksquare$
+
+
+**Теорема 4**: $[\lambda_1, ..., \lambda_s$ - собственные значения $\mathcal{A}] \Rightarrow [\mathcal{L} = \bigoplus\limits_{i=1}^s \mathcal{V}_{\lambda_i}]$
+
+$\square$
+
+Обозначим $\lambda = \lambda_1$
+
+В силу **теоремы 3** $\forall p \ge h_\lambda \mapsto \mathcal{V}_\lambda = \text{Ker} \mathcal{A}_\lambda^p \Rightarrow \mathcal{V}_\lambda = \text{Ker} \mathcal{A}_\lambda^{h_\lambda} = \text{Ker} \mathcal{A}_\lambda^{2 h_\lambda}$
+
+По **лемме 1** получаем $\mathcal{L} = \mathcal{V}_{\lambda_1} \oplus \mathcal{W}_1$, $\mathcal{W}_1 = \text{Im} \mathcal{A}_\lambda^{h_\lambda}$
+
+$\lambda_2, ..., \lambda_s$ - собственные значения $\mathcal{A}|_{\mathcal{W}_1}$
+
+Рассуждая аналогично для $\lambda_2, ..., \lambda_s$, получаем:
+
+$\mathcal{L} = \mathcal{V}_{\lambda_1} \oplus ... \oplus \mathcal{V}_{\lambda_s} \oplus \mathcal{W}$
+
+Здесь $\mathcal{W}$ не может иметь собственных векторов, так как они все лежат в $\mathcal{V}_{\lambda_1}$ ..., $\mathcal{V}_{\lambda_s}$, но поле $\mathbb{C}$ алгебралически замкнуто $\Rightarrow \dim\mathcal{W} = 0$, иначе характеристическое уравнение для $\mathcal{A}|_\mathcal{W}$ имеет корень и в $\mathcal{W}$ есть собственные векторы
+
+$\blacksquare$
+
+Замечание: Если поле не является алгебралически замкнутым(например $\mathbb{R}$), то справедливо представление $\mathcal{L} = \left( \bigoplus\limits_{i=1}^s \mathcal{V}_{\lambda_i} \right) \oplus \mathcal{W}$
+
+**Теорема 5**: Существует базис в котором $A = \text{diag}(A|_{\mathcal{V}_{\lambda_1}}, ..., A|_{\mathcal{V}_{\lambda_s}})$
+
+$\square$
+
+Выберем в $\mathcal{V}_{\lambda_k}$ базис $e^{(k)}_{1}, ..., e^{(k)}_{n_{\lambda_k}}, k = \overline{1,s}$
+
+В силу **теоремы 4** объединение базисов $e^{(1)}_{1}, ..., e^{(1)}_{n_{\lambda_1}}, ..., e^{(s)}_{1}, ..., e^{(s)}_{n_{\lambda_s}}$ - базис в $\mathcal{L}$
+
+Но из **леммы 2** следует, что в этом базисе матрица преобразования имеет необходимый вид
+
+$\blacksquare$
