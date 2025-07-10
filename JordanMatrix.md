@@ -10,6 +10,10 @@ $\mathcal{E}$ - тождественное преобразование, $E \in 
 
 **Определение 0**: $\N_0 = \N \cup \{0\}$
 
+$\mathcal{A}|_\mathcal{U}: \mathcal{U} \rightarrow \mathcal{U}$ - ограничение $\mathcal{A}$ на инвариантное линейное подпространство $\mathcal{U}$ с матрицей $A|_\mathcal{U}$
+
+$\text{diag}(A_1, ..., A_s)$ - блочно-диагональная матрица
+
 # Собственные и коренвые векторы
 
 Фиксируем $\lambda \in \mathbb{C}$ и расммотрим оператор $\mathcal{A}_\lambda = \mathcal{A} - \lambda\mathcal{E}$ 
@@ -89,15 +93,37 @@ $\blacksquare$
 
 # Разложение на корневые подпространтва
 
-$\oplus$ - прямая сумма
+Два эквививалентных определения прямой суммы $\mathcal{L} = \bigoplus\limits_{i=1}^s \mathcal{L}_i$:
+
+1) $\mathcal{L} = \sum\limits_{i=1}^s \mathcal{L}_i$ и $\dim\mathcal{L} = \sum\limits_{i=1}^s \dim\mathcal{L}_i$
+
+2) Объединение базисов $\mathcal{L}_1, ..., \mathcal{L}_s$ является базисом в $\mathcal{L}$
 
 **Лемма 1**: $[\mathcal{L} = \text{Ker} \mathcal{A} \oplus \text{Im} \mathcal{A}] \Leftrightarrow [\text{Ker} \mathcal{A} = \text{Ker} \mathcal{A}^2]$
 
 $\square$
 
-По формуле Грассмана $\dim(\text{Ker} \mathcal{A} + \text{Im} \mathcal{A}) = \dim\text{Ker} \mathcal{A} + \dim\text{Im} \mathcal{A} - \dim(\text{Ker} \mathcal{A} \cap \text{Im} \mathcal{A})$
+Рассмотрим подпротсранство $\mathcal{W} = \text{Ker} \mathcal{A} + \text{Im} \mathcal{A}$
 
-Из курса линейной алгебры известно $\dim\text{Ker} \mathcal{A} + \dim\text{Im} \mathcal{A} = \dim\mathcal{L}$
+По формуле Грассмана $\dim(\mathcal{W}) = \dim\text{Ker} \mathcal{A} + \dim\text{Im} \mathcal{A} - \dim(\text{Ker} \mathcal{A} \cap \text{Im} \mathcal{A})$
+
+Из курса линейной алгебры известно:
+
+1) $\dim\text{Ker} \mathcal{A} + \dim\text{Im} \mathcal{A} = \dim\mathcal{L}$
+
+2) Если $\mathcal{L}' \subset \mathcal{L}$, то $[\mathcal{L}' = \mathcal{L}] \Leftrightarrow [\dim\mathcal{L}' = \dim\mathcal{L}]$
+
+Теперь пользуясь первым из определений прямой суммы, можно переписать утверждение леммы в виде:
+
+$[\text{Ker} \mathcal{A} \cap \text{Im} \mathcal{A} = \{0\}] \Leftrightarrow [\text{Ker} \mathcal{A} = \text{Ker} \mathcal{A}^2]$
+
+Пусть $\text{Ker} \mathcal{A} = \text{Ker} \mathcal{A}^2$, выберем любой $x \in \text{Ker} \mathcal{A} \cap \text{Im} \mathcal{A}$, тогда $x \in \text{Im} \mathcal{A} \Rightarrow \exists z: \mathcal{A}z = x \Rightarrow \mathcal{A}^2 z = \mathcal{A}x = 0$
+
+То есть $z \in \text{Ker} \mathcal{A} = \text{Ker} \mathcal{A}^2 \Rightarrow x = \mathcal{A}z = 0 \Rightarrow \text{Ker} \mathcal{A} \cap \text{Im} \mathcal{A} = \{0\}$
+
+Обратно пусть $\text{Ker} \mathcal{A} \cap \text{Im} \mathcal{A} = \{0\} \Rightarrow \forall x \in \text{Im} \mathcal{A}: x = 0 \Leftrightarrow \mathcal{A}x = 0$
+
+Выберем любой $z \in \mathcal{L} \Rightarrow \mathcal{A}z \in \text{Im} \mathcal{A}$, получается $\mathcal{A}z = 0 \Leftrightarrow \mathcal{A}^2 z = 0$
 
 $\blacksquare$
 
@@ -147,3 +173,11 @@ $\square$
 Но из **леммы 2** следует, что в этом базисе матрица преобразования имеет необходимый вид
 
 $\blacksquare$
+
+Из курса линейной алгебры известно, что для любого линейного преобразования линейного пространства над полем $\mathbb{C}$ существует базис в котором матрица этого преобразования является верхней треугольной
+
+Пусть $e^{(k)}_{1}, ..., e^{(k)}_{n_{\lambda_k}}, k = \overline{1,s}$ в **теореме 4** именно такие базисы, тогда характеристическое уравнение имеет вид $(\lambda - \lambda_1)^{n_{\lambda_1}}...(\lambda - \lambda_s)^{n_{\lambda_s}} = 0$
+
+Следствие: размерности корневых подпространств равны алгебралическим кратностям соответсвующих собственных значений в характеристическом уравнении
+
+# Циклические подпространства
