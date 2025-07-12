@@ -20,7 +20,7 @@ $\langle e_1, ..., e_s \rangle = \{x = \sum\limits_{i=1}^s \alpha_i e_i | \alpha
 
 $|A|$ - определитель матрицы $A$
 
-# Собственные и коренвые векторы
+# Собственные и корневые векторы
 
 Фиксируем $\lambda \in \mathbb{C}$ и расммотрим оператор $\mathcal{A}_\lambda = \mathcal{A} - \lambda\mathcal{E}$ 
 с матрицей $A_\lambda = A - \lambda E$
@@ -371,7 +371,19 @@ $\square$
 
 Докажем необходимость:
 
-...
+$J_1 \sim J_2 \Rightarrow$ это матрицы преобразования $\mathcal{J}$
+
+Уравнение ${\Large\chi}_{\mathcal{J}}(\lambda) = 0$ задаёт собственные значения и размерности корневых подпространств
+
+Заметим, что $\dim\text{Ker}(\mathcal{J} - \lambda\mathcal{E})^k$ - количество линейно независимых векторов высоты $h \le k$ в корневом подпространстве $\mathcal{V}_\lambda$
+
+Тогда $b(k, \lambda) = \dim\text{Ker}(\mathcal{J} - \lambda\mathcal{E})^k - \dim\text{Ker}(\mathcal{J} - \lambda\mathcal{E})^{k-1}$ задаёт количество линейно независимых векторов высоты $k$ в $\mathcal{V}_\lambda$
+
+Число $J_k(\lambda)$ в жордановой форме можно найти как количество корневых векторов высоты $k$, для которых нет векторов высоты $k+1$
+
+$c_k(\lambda) = b(k, \lambda) - b(k+1, \lambda)$
+
+Теперь заметим, что $c_k(\lambda)$ зависит от $\mathcal{J}$ и совпадает для $J_1$ и $J_2$, получается, что эти матрицы состоят из одинаковых блоков
 
 $\blacksquare$
 
@@ -386,6 +398,12 @@ $\square$
 **Теорема 8** заканчивает доказательство
 
 $\blacksquare$
+
+Если ввести понятие ранга преобразования $\text{Rg}\mathcal{A} = \dim\text{Im}\mathcal{A} = n - \dim\text{Ker}\mathcal{A}$, то формулы из **теоремы 8** можно записать в виде
+
+$b(k, \lambda) = \text{Rg}\mathcal{J}_\lambda^{k-1} - \text{Rg}\mathcal{J}_\lambda^k$
+
+$с_k(\lambda) = \text{Rg}\mathcal{J}_\lambda^{k-1} - 2\text{Rg}\mathcal{J}_\lambda^k + \text{Rg}\mathcal{J}_\lambda^{k+1}$
 
 # Нахождение корневых векторов
 
