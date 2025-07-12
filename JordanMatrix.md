@@ -408,3 +408,39 @@ $\blacksquare$
 3) Получить недостающие $n_\lambda-r_\lambda$ присоединённых векторов
 
 Здесь есть несколько вариантов: либо честно искать $\mathcal{W}_p$ как в **теореме 6** и уже к ним вычислять присоединённые векторы, либо пытаться сразу искать присоединённые векторы к линейным комбинациям базисных векторов $\mathcal{L}_\lambda$
+
+# Подобие матрицы и её транспонированной
+
+Начнём с рассмотрения антидиагональной матрицы $S_k = \left(
+\begin{array}{ccccc}
+  &   &   &   & 1 \\
+  & {\huge O} &   & 1 &   \\
+  &   & ⋰ &   &   \\
+  & 1 &   & {\huge O} &   \\
+1 &   &   &   &   \\
+\end{array}
+\right) \in \mathbb{C}^{k \times k}$
+
+Умножение на такую матрицу справа переставляет столбцы в обратном порядке, умножение слева - строки
+
+**Теорема 9**: Для любой матрицы $A \in \mathbb{C}^{k \times k}$ верно $A \sim A^T$
+
+$\square$
+
+Для начала рассмотрим жорданову клетку $J_k(\lambda)$
+
+$S_k^{-1} = S_k \Rightarrow S_k^{-1}J_k(\lambda)S_k = S_kJ_k(\lambda)S_k = J_k(\lambda)^T \Rightarrow J_k(\lambda) \sim J_k(\lambda)^T$
+
+Теперь рассмотрим жорданову матрицу $J = \text{diag}(J_{k_1}(\lambda_1), J_{k_2}(\lambda_2), ..., J_{k_m}(\lambda_m)) \in \mathbb{C}^{n \times n}$
+
+$S_n^{-1}JS_n = S_nJS_n = \text{diag}(J_{k_m}(\lambda_m)^T, J_{k_{m-1}}(\lambda_{m-1})^T, ..., J_{k_1}(\lambda_1)^T) = \tilde{J} \Rightarrow J \sim \tilde{J}$
+
+В силу **теоремы 8** получается $\tilde{J} \sim \text{diag}(J_{k_1}(\lambda_1)^T, J_{k_2}(\lambda_2)^T, ..., J_{k_m}(\lambda_m)^T) = J^T\Rightarrow J \sim J^T$
+
+Пусть теперь $J$ - жорданова форма матрицы $A$, тогда
+
+$\exists P: A = P^{-1}JP \Rightarrow A^T = P^TJ^T(P^T)^{-1} \Rightarrow A^T \sim J^T$
+
+Окончательно $A \sim J \sim J^T \sim A^T$
+
+$\blacksquare$
